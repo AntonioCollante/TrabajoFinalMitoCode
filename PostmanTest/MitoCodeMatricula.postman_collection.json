@@ -1,0 +1,580 @@
+{
+	"info": {
+		"_postman_id": "1354fdee-61f2-4fab-827b-030fc1a46953",
+		"name": "MitoCodeMatricula",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Estudiante",
+			"item": [
+				{
+					"name": "Obtener Lista de Estudiantes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "449d9a04-57d7-4563-9bbf-8d085c4d4a16",
+								"exec": [
+									"const response = pm.response.json();\r",
+									"const token = response.data.tokenParaPago;\r",
+									"\r",
+									"if (token) {\r",
+									"    pm.environment.set(\"token\", token);\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/listStudent",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"listStudent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Estudiante",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "449d9a04-57d7-4563-9bbf-8d085c4d4a16",
+								"exec": [
+									"const response = pm.response.json();\r",
+									"const token = response.data.tokenParaPago;\r",
+									"\r",
+									"if (token) {\r",
+									"    pm.environment.set(\"token\", token);\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/student/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"student",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar Estudiante",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "449d9a04-57d7-4563-9bbf-8d085c4d4a16",
+								"exec": [
+									"const response = pm.response.json();\r",
+									"const token = response.data.tokenParaPago;\r",
+									"\r",
+									"if (token) {\r",
+									"    pm.environment.set(\"token\", token);\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"nombre\": \"Juan Antonio\",\n  \"apellidos\": \"Collantes Meía\",\n  \"dni\": \"43457638\",\n  \"edad\": 22\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/createStudent",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"createStudent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar Estudiante",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "449d9a04-57d7-4563-9bbf-8d085c4d4a16",
+								"exec": [
+									"const response = pm.response.json();\r",
+									"const token = response.data.tokenParaPago;\r",
+									"\r",
+									"if (token) {\r",
+									"    pm.environment.set(\"token\", token);\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Juan Antonio\",\n  \"apellidos\": \"Collantes Meía\",\n  \"dni\": \"43457638\",\n  \"edad\": 37\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/updateStudent/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"updateStudent",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Curso",
+			"item": [
+				{
+					"name": "Obtener Lista de Cursos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "449d9a04-57d7-4563-9bbf-8d085c4d4a16",
+								"exec": [
+									"const response = pm.response.json();\r",
+									"const token = response.data.tokenParaPago;\r",
+									"\r",
+									"if (token) {\r",
+									"    pm.environment.set(\"token\", token);\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/courses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Curso",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "449d9a04-57d7-4563-9bbf-8d085c4d4a16",
+								"exec": [
+									"const response = pm.response.json();\r",
+									"const token = response.data.tokenParaPago;\r",
+									"\r",
+									"if (token) {\r",
+									"    pm.environment.set(\"token\", token);\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/courses/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"courses",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar Curso",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "449d9a04-57d7-4563-9bbf-8d085c4d4a16",
+								"exec": [
+									"const response = pm.response.json();\r",
+									"const token = response.data.tokenParaPago;\r",
+									"\r",
+									"if (token) {\r",
+									"    pm.environment.set(\"token\", token);\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Sistemas Operativos Libres\",\n  \"siglas\": \"SISOPEL\",\n  \"estado\": true\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/createCourses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"createCourses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar Curso",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "449d9a04-57d7-4563-9bbf-8d085c4d4a16",
+								"exec": [
+									"const response = pm.response.json();\r",
+									"const token = response.data.tokenParaPago;\r",
+									"\r",
+									"if (token) {\r",
+									"    pm.environment.set(\"token\", token);\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"AMAZOM WEB SERVICES\",\n  \"siglas\": \"AWS\",\n  \"estado\": true\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/courses/16",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"courses",
+								"16"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Matricula",
+			"item": [
+				{
+					"name": "Registrar Matricula",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "449d9a04-57d7-4563-9bbf-8d085c4d4a16",
+								"exec": [
+									"const response = pm.response.json();\r",
+									"const token = response.data.tokenParaPago;\r",
+									"\r",
+									"if (token) {\r",
+									"    pm.environment.set(\"token\", token);\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"fechaMatricula\": \"2025-10-25T15:30:00\",\n  \"estudiante\": {\n    \"id\": 1\n  },\n  \"detalles\": [\n    {\n      \"curso\": {\n        \"id\": 4,\n        \"nombre\": \"Programación I\"\n      },\n      \"aula\": \"Aula 202\"\n    },\n    {\n      \"curso\": {\n        \"id\": 7,\n        \"nombre\": \"Bases de Datos\"\n      },\n      \"aula\": \"Laboratorio 3\"\n    }\n  ],\n  \"estado\": true\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/createEnrollment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"createEnrollment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
