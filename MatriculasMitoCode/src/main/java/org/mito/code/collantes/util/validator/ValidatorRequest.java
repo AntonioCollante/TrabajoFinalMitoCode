@@ -1,16 +1,16 @@
 package org.mito.code.collantes.util.validator;
 
 import org.mito.code.collantes.model.CourseRequest;
+import org.mito.code.collantes.model.EnrollmentRequest;
 import org.mito.code.collantes.model.StudentRequest;
 
-import java.util.AbstractMap;
-import java.util.Map;
-import java.util.Optional;
+import java.time.LocalDateTime;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class StudentValidatorRequest {
+public class ValidatorRequest {
 
     private static final String PREFIX = "MITOCODE-ERROR";
 
@@ -42,6 +42,31 @@ public class StudentValidatorRequest {
         ).orElse(Map.of(PREFIX + " - 101", "StudentRequest es null"));
     }
 
+    public static Map<String, String> validateEnrollmentRequest(EnrollmentRequest request) {
+        if (request == null) {
+            return Map.of(PREFIX + " - 000", "EnrollmentRequest es null");
+        }
+
+        Stream<Optional<Map.Entry<String, String>>> baseValidations = Stream.of(
+                validateDate(request.fechaMatricula(), Objects::isNull, " - 001", "Fecha Matricula es obligatoria"),
+                validateBoolean(request.estado(), Objects::isNull, " - 002", "estado es obligatorio"),
+                validateInt(request.estudiante() != null ? request.estudiante().id() : null, i -> i == null || i <= 0, " - 003", "id de estudiante es obligatorio y debe ser positivo"),
+                validateList(request.detalles(), l -> l == null || l.isEmpty(), " - 004", "detalles de matrícula no pueden estar vacíos")
+        );
+
+        Stream<Optional<Map.Entry<String, String>>> detalleValidations = Optional.ofNullable(request.detalles())
+                .stream()
+                .flatMap(List::stream)
+                .flatMap(detail -> Stream.of(
+                        validateInt(detail.curso() != null ? detail.curso().id() : null, i -> i == null || i <= 0, " - 005", "id de curso es obligatorio y debe ser positivo"),
+                        validate(detail.aula(), s -> s == null || s.isBlank(), " - 006", "aula es obligatoria")
+                ));
+
+        return Stream.concat(baseValidations, detalleValidations)
+                .flatMap(Optional::stream)
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
     private static Optional<Map.Entry<String, String>> validateBoolean(
             Boolean value,
             Predicate<Boolean> condition,
@@ -63,6 +88,24 @@ public class StudentValidatorRequest {
     private static Optional<Map.Entry<String, String>> validate(
             String value,
             Predicate<String> condition,
+            String code,
+            String message
+    ) {
+        return condition.test(value) ? Optional.of(new AbstractMap.SimpleEntry<>(PREFIX + code, message)) : Optional.empty();
+    }
+
+    private static Optional<Map.Entry<String, String>> validateDate(
+            LocalDateTime value,
+            Predicate<LocalDateTime> condition,
+            String code,
+            String message
+    ) {
+        return condition.test(value) ? Optional.of(new AbstractMap.SimpleEntry<>(PREFIX + code, message)) : Optional.empty();
+    }
+
+    private static Optional<Map.Entry<String, String>> validateList(
+            List<?> value,
+            Predicate<List<?>> condition,
             String code,
             String message
     ) {

@@ -2,7 +2,7 @@ package org.mito.code.collantes.service;
 
 import lombok.RequiredArgsConstructor;
 import org.mito.code.collantes.dao.CourseDAO;
-import org.mito.code.collantes.model.CourseOperacionResponse;
+import org.mito.code.collantes.model.CourseOperationResponse;
 import org.mito.code.collantes.model.CourseRequest;
 import org.mito.code.collantes.model.OperacionStatusDTO;
 import org.mito.code.collantes.util.converter.ObjectConverter;
@@ -18,22 +18,22 @@ public class CourseSaveService {
     private final CourseDAO dao;
     private final ObjectConverter objectConverter;
 
-    public ResponseEntity<CourseOperacionResponse> createCourse(CourseRequest request) {
+    public ResponseEntity<CourseOperationResponse> createCourse(CourseRequest request) {
         return ejecutar(() -> dao.create(request), "ESTUDIANTE REGISTRADO EXITOSAMENTE");
     }
 
-    public ResponseEntity<CourseOperacionResponse> updateCourse(int id, CourseRequest request) {
+    public ResponseEntity<CourseOperationResponse> updateCourse(int id, CourseRequest request) {
         return ejecutar(() -> dao.update(id, request), "ESTUDIANTE MODIFICADO EXITOSAMENTE");
     }
 
-    private ResponseEntity<CourseOperacionResponse> ejecutar(Runnable accion, String mensajeExito) {
+    private ResponseEntity<CourseOperationResponse> ejecutar(Runnable accion, String mensajeExito) {
         try {
             accion.run();
             OperacionStatusDTO status = OperacionStatusDTO.builder().status("Ok").message(mensajeExito).build();
-            return ResponseEntity.status(HttpStatus.OK).body(CourseOperacionResponse.builder().data(status).notifications(List.of()).build());
+            return ResponseEntity.status(HttpStatus.OK).body(CourseOperationResponse.builder().data(status).notifications(List.of()).build());
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(CourseOperacionResponse.builder().data(null).notifications(objectConverter.notificationConverter(e)).build());
+                    .body(CourseOperationResponse.builder().data(null).notifications(objectConverter.notificationConverter(e)).build());
         }
     }
 

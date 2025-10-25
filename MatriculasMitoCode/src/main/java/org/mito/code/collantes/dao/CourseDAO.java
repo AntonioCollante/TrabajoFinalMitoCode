@@ -2,7 +2,6 @@ package org.mito.code.collantes.dao;
 
 import org.mito.code.collantes.model.CourseDTO;
 import org.mito.code.collantes.model.CourseRequest;
-import org.mito.code.collantes.model.StudentDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;

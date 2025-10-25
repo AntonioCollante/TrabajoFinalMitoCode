@@ -28,11 +28,11 @@ public class CourseDelegate {
         return cursoOperation.getCurso(id);
     }
 
-    public ResponseEntity<CourseOperacionResponse> createCourses(CourseRequest request) {
+    public ResponseEntity<CourseOperationResponse> createCourses(CourseRequest request) {
         return cursoSaveOperation.saveCurso(request);
     }
 
-    public ResponseEntity<CourseOperacionResponse> updateCourses (int id, CourseRequest request) {
+    public ResponseEntity<CourseOperationResponse> updateCourses (int id, CourseRequest request) {
         return cursoSaveOperation.updateCurso(id, request);
     }
 

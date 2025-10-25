@@ -5,7 +5,7 @@ import lombok.Builder;
 import java.util.List;
 
 @Builder
-public record CourseOperacionResponse(
+public record CourseOperationResponse(
 
         @JsonProperty("data")
         OperacionStatusDTO data,
@@ -14,8 +14,8 @@ public record CourseOperacionResponse(
         List<Notification> notifications
 
 ) {
-    public static CourseOperacionResponse ok(String mensaje) {
-        return CourseOperacionResponse.builder()
+    public static CourseOperationResponse ok(String mensaje) {
+        return CourseOperationResponse.builder()
                 .data(OperacionStatusDTO.ok(mensaje))
                 .notifications(List.of())
                 .build();

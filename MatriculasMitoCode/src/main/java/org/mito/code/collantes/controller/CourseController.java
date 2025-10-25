@@ -2,7 +2,7 @@ package org.mito.code.collantes.controller;
 
 import org.mito.code.collantes.delegate.CourseDelegate;
 import org.mito.code.collantes.model.CourseListResponse;
-import org.mito.code.collantes.model.CourseOperacionResponse;
+import org.mito.code.collantes.model.CourseOperationResponse;
 import org.mito.code.collantes.model.CourseRequest;
 import org.mito.code.collantes.model.CourseSingleResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ public class CourseController {
     CourseDelegate cursoDelegate;
 
     @PostMapping(value= "/createCourses", produces = {"application/json"})
-    public ResponseEntity<CourseOperacionResponse> crearCurso(
+    public ResponseEntity<CourseOperationResponse> crearCurso(
             @RequestBody CourseRequest request
     ) {
         return cursoDelegate.createCourses(request);
@@ -36,7 +36,7 @@ public class CourseController {
     }
 
     @PutMapping("/courses/{id}")
-    public ResponseEntity<CourseOperacionResponse> updateCourses(
+    public ResponseEntity<CourseOperationResponse> updateCourses(
             @PathVariable Integer id,
             @RequestBody CourseRequest request
     ) {

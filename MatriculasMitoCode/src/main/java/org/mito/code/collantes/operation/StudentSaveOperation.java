@@ -8,7 +8,7 @@ import org.mito.code.collantes.util.converter.ObjectConverter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import static org.mito.code.collantes.util.validator.StudentValidatorRequest.validateEstudianteRequest;
+import static org.mito.code.collantes.util.validator.ValidatorRequest.validateEstudianteRequest;
 import java.util.Map;
 
 @Component
@@ -29,6 +29,12 @@ public class StudentSaveOperation {
     }
 
     public ResponseEntity<StudentOperacionResponse> updateEstudiante (int id, StudentRequest request) {
+        Map<String, String> errors = validateEstudianteRequest(request);
+        if (!errors.isEmpty()) {
+            StudentOperacionResponse errorResponse = StudentOperacionResponse.builder().data(null)
+                    .notifications(objectConverter.notificationConverterMap(errors)).build();
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+        }
         return studentSaveService.updateStudent(id, request);
     }
 
