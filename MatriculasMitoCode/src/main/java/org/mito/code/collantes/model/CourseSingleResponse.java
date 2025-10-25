@@ -5,18 +5,18 @@ import lombok.Builder;
 import java.util.List;
 
 @Builder
-public record CursoSingleResponse(
+public record CourseSingleResponse(
 
         @JsonProperty("data")
-        CursoDTO data,
+        CourseDTO data,
 
         @JsonProperty("notifications")
         List<Notification> notifications
 
 ) {
-    public static CursoSingleResponse buildExample() {
-        return CursoSingleResponse.builder()
-                .data(CursoDTO.builder()
+    public static CourseSingleResponse buildExample() {
+        return CourseSingleResponse.builder()
+                .data(CourseDTO.builder()
                         .id(101)
                         .nombre("Matemáticas")
                         .siglas("MAT101")

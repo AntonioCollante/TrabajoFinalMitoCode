@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 
 @Builder
-public record CursoRequest(
+public record CourseDTO(
 
         @JsonProperty("id")
         Integer id,
@@ -18,13 +18,4 @@ public record CursoRequest(
         @JsonProperty("estado")
         Boolean estado
 
-) {
-    public static CursoRequest buildExample() {
-        return CursoRequest.builder()
-                .id(101)
-                .nombre("Matemáticas")
-                .siglas("MAT101")
-                .estado(true)
-                .build();
-    }
-}
+) {}

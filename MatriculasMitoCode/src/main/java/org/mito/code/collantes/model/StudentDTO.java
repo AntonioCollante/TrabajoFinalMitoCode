@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 
 @Builder
-public record EstudianteRequest(
+public record StudentDTO(
 
         @JsonProperty("id")
         Integer id,
@@ -21,14 +21,4 @@ public record EstudianteRequest(
         @JsonProperty("edad")
         Integer edad
 
-) {
-    public static EstudianteRequest buildExample() {
-        return EstudianteRequest.builder()
-                .id(1)
-                .nombre("Juan")
-                .apellidos("Pérez")
-                .dni("12345678")
-                .edad(20)
-                .build();
-    }
-}
+) {}

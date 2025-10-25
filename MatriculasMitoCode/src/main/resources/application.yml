@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: sistema-estudiantes
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mitocodematricula
+    username: antonio
+    password: 123456
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      connection-timeout: 30000
+
+management:
+  server:
+    base-path: /
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    info:
+      enabled: true
+    health:
+      show-details: always
+
+info:
+  app:
+    name: Sistema de Gestión de Estudiantes
+    version: 1.0.0
+    author: Antonio Collantes
+    entorno: desarrollo
+    fecha: 2025-10-19

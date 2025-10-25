@@ -5,17 +5,17 @@ import lombok.Builder;
 import java.util.List;
 
 @Builder
-public record CursoListResponse(
+public record StudentListResponse(
 
         @JsonProperty("data")
-        List<CursoDTO> data,
+        List<StudentDTO> data,
 
         @JsonProperty("notifications")
         List<Notification> notifications
 
 ) {
-    public static CursoListResponse buildExample() {
-        return CursoListResponse.builder()
+    public static StudentListResponse buildExample() {
+        return StudentListResponse.builder()
                 .data(List.of())
                 .notifications(List.of())
                 .build();
